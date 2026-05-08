@@ -1,0 +1,33 @@
+def sumar_areas(figuras):
+    total = 0
+    for figura in figuras:
+        total += figura.area()
+    return total
+
+def sumar_perimetros(figuras):
+    total = 0
+    for figura in figuras:
+        total += figura.perimetro()
+    return total
+
+if __name__ == "__main__":
+    try:
+        mis_figuras = [
+            Cuadrado(5),
+            Cuadrado(10),
+            Rectangulo(4, 10),
+            Rectangulo(2, 8)
+        ]
+
+        print("--- EJECUCIÓN DEL TALLER ---")
+        for f in mis_figuras:
+            print(f"{f} | Área: {f.area()} | Perímetro: {f.perimetro()}")
+
+        print(f"\nSuma total de Áreas: {sumar_areas(mis_figuras)}")
+        print(f"Suma total de Perímetros: {sumar_perimetros(mis_figuras)}")
+
+        print("\nProbando validación con valor negativo:")
+        figura_error = Cuadrado(-10)
+
+    except ValueError as e:
+        print(f"Error capturado: {e}")
